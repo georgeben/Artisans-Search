@@ -6,12 +6,7 @@
     </header>
 
     <form class="signup-form" method="post">
-        <h4>Create an account</h4>
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" aria-describedby="namelHelp"
-            placeholder="Enter your name" name="name" required>
-        </div>
+        <h4>Log in</h4>
         <div class="form-group">
             <label for="username">Username</label>
             <input type="email" class="form-control" id="username" placeholder="Enter your username"
@@ -19,11 +14,11 @@
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Choose a password"
+            <input type="password" class="form-control" id="password" placeholder="Enter password"
             name="password" required>
         </div>
-        <button type="submit" class="btn">Create an account</button>
-        <p>Already have an account? Sign in <a href="/login">here.</a></p>
+        <button type="submit" class="btn">Log in</button>
+        <p>Dont have an account? Sign up <a href="/signup">here.</a></p>
     </form>
 
 <% include partials/footer %>
