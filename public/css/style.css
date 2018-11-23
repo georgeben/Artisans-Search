@@ -1,3 +1,56 @@
-h1{
-   color:red;
+:root{
+    --green-color:#67be4b;
+}
+
+html, body{
+    padding: none;
+    margin: none;
+    background-color: var(--green-color);
+}
+
+nav{
+    background-color: var(--green-color);
+    color: white;
+    padding: 10px;
+    box-shadow: 2px 2px 4px #444;
+}
+
+nav h1{
+    font-size: 2em;
+}
+
+.signup-form{
+    width: 40%;
+    margin: auto;
+    padding: 10px;
+    background-color: #fff;
+    margin-top: 5%;
+    box-shadow: 2px 2px 4px #444;
+}
+
+.signup-form h4{
+    text-align: center;
+}
+
+.signup-form label{
+    color: #585858;
+
+}
+
+.signup-form input{
+    border-radius: 50px;
+    border: none;
+    background-color: #e9ebee;
+
+}
+.signup-form button{
+    width: 100%;
+    background-color: var(--green-color);
+    color: white;
+    border-radius: 50px;
+}
+
+.signup-form p{
+    text-align: center;
+    font-size: 0.9em;
 }

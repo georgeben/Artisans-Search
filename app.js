@@ -4,6 +4,7 @@ const logger = require('morgan');
 
 //Routes
 const homeRoute = require('./routes/home');
+const signUpRoute = require('./routes/signup');
 
 const app = express();
 
@@ -19,6 +20,9 @@ app.set("view engine", "ejs");
 
 //Route to the home page
 app.use('/', homeRoute);
+
+//Route to the sign up page
+app.use('/signup', signUpRoute);
 
 //Catch 404 errors
 app.use((req, res, next) =>{
