@@ -3,8 +3,11 @@
 }
 
 html, body{
-    padding: none;
-    margin: none;
+    padding: 0;
+    margin: 0;
+}
+
+body{
     background-color: var(--green-color);
 }
 
@@ -53,4 +56,8 @@ nav h1{
 .signup-form p{
     text-align: center;
     font-size: 0.9em;
+}
+
+.white-bg{
+    background-color: #fff;
 }
