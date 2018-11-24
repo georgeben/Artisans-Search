@@ -16,11 +16,25 @@ nav{
     color: white;
     padding: 10px;
     box-shadow: 2px 2px 4px #444;
+    display: flex;
+    align-items: center;
 }
 
-nav h1{
+nav div{
+    width: 33%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.logo{
+    text-align: left;
+}
+
+.logo h1{
     font-size: 2em;
 }
+
 
 .signup-form{
     width: 40%;
@@ -40,12 +54,13 @@ nav h1{
 
 }
 
-.signup-form input{
+.signup-form input, .add-artisan input{
     border-radius: 50px;
     border: none;
     background-color: #e9ebee;
 
 }
+
 .signup-form button{
     width: 100%;
     background-color: var(--green-color);
@@ -58,6 +73,78 @@ nav h1{
     font-size: 0.9em;
 }
 
-.white-bg{
+/* Dashboard */
+
+.grey-bg{
+    background-color: #e9ebee;
+}
+
+.admin-info{
     background-color: #fff;
+    padding: 10px;
+    box-shadow: 2px 2px 4px #444;
+    display: flex;
+    align-items: center;
+    width: 70%;
+    margin: auto;
+    margin-top: 2%;
+}
+
+.admin-info img{
+    width: 90px;
+    height: 90px;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.add-artisan{
+    background-color: white;
+    padding: 10px 5%;
+    box-shadow: 2px 2px 4px #444;
+    width: 70%;
+    margin: auto;
+    margin-top: 2%;
+}
+
+.add-artisan input{
+    border: 1px solid var(--green-color);
+    background-color: #f2f2f2;
+}
+
+.form-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-row div{
+    width: 45%;
+}
+
+.form-row select{
+    border-radius: 50px;
+    border: 1px solid var(--green-color);
+    background-color: #e9ebee;
+    width: 100%;
+    padding: 5px;
+}
+
+.form-row select:focus{
+    outline: 0;
+}
+
+.add-artisan button{
+    width: 45%;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    background-color: var(--green-color);
+    padding: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.add-artisan button:focus{
+    outline: 0;
 }
