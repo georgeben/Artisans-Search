@@ -18,6 +18,12 @@ nav{
     box-shadow: 2px 2px 4px #444;
     display: flex;
     align-items: center;
+    position: fixed;
+    left: 0;
+    right: o;
+    top: 0;
+    width: 100%;
+    z-index: 10;
 }
 
 nav div{
@@ -35,30 +41,31 @@ nav div{
     font-size: 2em;
 }
 
-
-.signup-form{
-    width: 40%;
+.card{
     margin: auto;
     padding: 10px;
     background-color: #fff;
-    margin-top: 5%;
     box-shadow: 2px 2px 4px #444;
+}
+
+.signup-form{
+    width: 40%; 
+    margin-top: 5%;
 }
 
 .signup-form h4{
     text-align: center;
 }
 
-.signup-form label{
+form label{
     color: #585858;
 
 }
 
-.signup-form input, .add-artisan input{
+.signup-form input, .add-artisan input, .user-search form input{
     border-radius: 50px;
     border: none;
     background-color: #e9ebee;
-
 }
 
 .signup-form button{
@@ -79,34 +86,32 @@ nav div{
     background-color: #e9ebee;
 }
 
-.admin-info{
-    background-color: #fff;
-    padding: 10px;
-    box-shadow: 2px 2px 4px #444;
+.user-info{
     display: flex;
     align-items: center;
+}
+
+.admin-info{
     width: 70%;
     margin: auto;
     margin-top: 2%;
 }
 
-.admin-info img{
+.user-info img{
     width: 90px;
     height: 90px;
     margin-right: 20px;
     border-radius: 50%;
 }
 
-.add-artisan{
-    background-color: white;
+.add-artisan, .user-search{
     padding: 10px 5%;
-    box-shadow: 2px 2px 4px #444;
     width: 70%;
     margin: auto;
     margin-top: 2%;
 }
 
-.add-artisan input{
+.add-artisan input, .user-search form input{
     border: 1px solid var(--green-color);
     background-color: #f2f2f2;
 }
@@ -121,15 +126,15 @@ nav div{
     width: 45%;
 }
 
-.form-row select{
+.form-row select, .user-search form select{
     border-radius: 50px;
     border: 1px solid var(--green-color);
-    background-color: #e9ebee;
+    background-color: #f2f2f2;
     width: 100%;
     padding: 5px;
 }
 
-.form-row select:focus{
+.form-row select:focus, .user-search form select:focus{
     outline: 0;
 }
 
@@ -147,4 +152,49 @@ nav div{
 
 .add-artisan button:focus{
     outline: 0;
+}
+
+/* Home page */
+.user-search{
+    margin-top: 70px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+.user-search form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-search form div{
+    width: 40%;
+}
+
+.user-search form button{
+    width: 15%;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    background-color: var(--green-color);
+    padding: 6px;
+    margin-top: 11px;
+    cursor: pointer;
+}
+
+.results{
+    width: 70%;
+    margin: auto;
+    margin-top: 15%;
+}
+
+.artisan{
+    border-top: 1px solid #f2f2f2;
+    padding: 10px;
+}
+
+.artisan p{
+    margin-bottom: 0;
 }

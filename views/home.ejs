@@ -1,5 +1,71 @@
 <% include partials/header %>
-<body>
-    <h1>Artisans Search!</h1>
+<body class="grey-bg">
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Artisan Search</h1>
+            </div>
+            <div>
+                <h5>Find Artisans near you!</h5>
+            </div>
+            <div>
+                
+            </div>
+        </nav>
+    </header>
+
+    <div class="user-search card" >
+        <form>
+            <div class="form-group">
+                <label for="category">Occupation</label>
+                <input type="text" class="form-control" id="category" placeholder="Enter job category"
+                name="category" required>
+            </div>
+
+        <div class="form-group">
+            <label for="occupation">Location</label><br>
+            <select name="occupation">
+                <option value="lekki">Lekki</option>
+                <option value="ajah">Ajah</option>
+                <option value="ikeja">Ikeja</option>
+                <option value="victoria islan">Victoria Island</option>
+                <option value="ikoyi">Ikoyi</option>
+                <option value="akoka">Akoka</option>
+                <option value="badagry">Badagry</option>
+                <option value="ikorodu">Ikorodu</option>
+                <option value="epe">Epe</option>
+                <option value="ajegunle">Ajegunle</option>
+                <option value="agege">Agege</option>
+                <option value="apapa">Apapa</option>
+                <option value="imota">Imota</option>
+                <option value="mushin">Mushin</option>
+                <option value="ojo">Ojo</option>
+                <option value="oshodi">Oshodi</option>
+                <option value="surulere">Surulere</option>
+                <option value="somolu">Somolu</option>
+                <option value="ikosi">Ikosi</option>
+                <option value="ojuelegba">Ojuelegba</option>
+                <option value="ojota">Ojota</option>
+            </select>
+        </div>
+
+        <button>Search</button>
+        </form>
+    </div>
+
+    <div class="results card">
+        <h3><%= count %> results found</h3>
+        <% results.forEach(function(artisan){  %>
+            <div class="user-info artisan">
+                <img src="images/default_profile_img.png">
+                <div>
+                    <h5><%= artisan.name %></h5>
+                    <p><%= artisan.occupation %></p>
+                    <p><%= artisan.location %></p>
+                    <p><%= artisan.phonenumber %></p>
+                </div>
+            </div>
+        <%}) %>
+    </div>
 
 <% include partials/footer %>
