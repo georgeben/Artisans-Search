@@ -1,10 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
-const Artisan = require('../models/artisan-model')
+const Artisan = require('../models/artisan-model');
+const Admin = require('../models/admin-model');
 
 router.get('/', ensureAuthenticated, (req, res) =>{
-    res.render("dashboard");
+    console.log("Incoming username", req.query.username);
+    Admin.checkIfUserExists({username: req.query.username}, (err, admin) =>{
+        res.render("dashboard", {
+            name:admin.name
+        })
+    });
 });
 
 
@@ -14,7 +20,7 @@ function ensureAuthenticated(req, res, next) {
     } else {
         console.log(req.user)
         req.flash('error_msg', 'Log in to view your dashboard');
-        res.redirect('/signup');
+        res.redirect('/login');
     }
 }
 
