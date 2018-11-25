@@ -4,9 +4,12 @@ const router = express.Router();
 const Artisan = require('../models/artisan-model');
 const Admin = require('../models/admin-model');
 
+let adminLoggedIn = "";
+
 router.get('/', ensureAuthenticated, (req, res) =>{
     console.log("Incoming username", req.query.username);
     Admin.checkIfUserExists({username: req.query.username}, (err, admin) =>{
+        adminLoggedIn = admin.name;
         res.render("dashboard", {
             name:admin.name
         })
@@ -42,7 +45,11 @@ router.post('/', (req, res) => {
     Artisan.createArtisan(artisan, function(err, result) {
         if (err) throw err;
         console.log(result);
-        res.send('Artisan Created')
+        // res.send('Artisan Created')
+        req.flash('success_msg', "Artisan successfully added to the database.");
+        res.render("dashboard", {
+            name:adminLoggedIn
+        });
     })
 })
 

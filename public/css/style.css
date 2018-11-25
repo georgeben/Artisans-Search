@@ -201,3 +201,8 @@ form label{
 .artisan p{
     margin-bottom: 0;
 }
+
+.flash-success{
+    color: rgb(31, 161, 248);
+    text-align: center;
+}
