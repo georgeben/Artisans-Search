@@ -7,8 +7,8 @@ const artisanSchema = new Schema({
     firstName: String,
     lastName: String,
     occupation: String,
-    phoneNumber: String,
-    username: Number,
+    phoneNumber: Number,
+    location: String,
 })
 
 let Artisan = module.exports = mongoose.model('Artisan', artisanSchema)
@@ -24,17 +24,11 @@ module.exports.checkIfUserExists = function(query, callback) {
 //})
 
 module.exports.createArtisan= function(newArtisan, callback) {
-    bcrypt.hash(newArtisan.password, null, null, function(err, hash) {
+    newArtisan.save(callback)
+    /* bcrypt.hash(newArtisan.password, null, null, function(err, hash) {
         if (err) throw err;
         newArtisan.password = hash;
         newArtisan.save(callback);
-    })
+    }) */
 }
 
-
-module.exports.comparePassword = function(artisanPassword, hash, callback) {
-    bcrypt.compare(artisanPassword, hash, function(err, isMatch) {
-        if (err) throw err;
-        callback(null, isMatch)
-    })
-}
