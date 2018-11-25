@@ -1,0 +1,85 @@
+<% include partials/header %>
+    <body class="grey-bg">
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Artisan Search</h1>
+            </div>
+            <div>
+                <h5>Dashboard</h5>
+            </div>
+            <div>
+                <h5>Log out</h5>
+            </div>
+        </nav>
+    </header>
+
+    <div class="user-info admin-info" >
+        <img src="images/default_profile_img.png">
+        <div>
+            <h5>James Bond</h5>
+            <p>Administrator</p>
+        </div>
+    </div>
+
+    <form class="add-artisan card">
+        <h5>Add a new artisan</h5>
+        <label for="firstname">Name</label>
+        <div class="form-row">
+            <div class="form-group">
+                <input type="text" class="form-control" id="firstname" placeholder="Enter first name"
+                name="firstname" required>
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" id="lastname" placeholder="Enter last name"
+                name="lastname" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="occupation">Occupation</label>
+                <input type="text" class="form-control" id="occupation" placeholder="Enter occupation of artisan"
+                name="occupation" required>
+            </div>
+
+            <div class="form-group">
+                <label for="firstname">Phone number</label>
+                <input type="text" class="form-control" id="phonenumber" placeholder="Enter phone number of artisan"
+                name="phonenumber" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="occupation">Location</label><br>
+                <select name="occupation">
+                    <option value="lekki">Lekki</option>
+                    <option value="ajah">Ajah</option>
+                    <option value="ikeja">Ikeja</option>
+                    <option value="victoria islan">Victoria Island</option>
+                    <option value="ikoyi">Ikoyi</option>
+                    <option value="akoka">Akoka</option>
+                    <option value="badagry">Badagry</option>
+                    <option value="ikorodu">Ikorodu</option>
+                    <option value="epe">Epe</option>
+                    <option value="ajegunle">Ajegunle</option>
+                    <option value="agege">Agege</option>
+                    <option value="apapa">Apapa</option>
+                    <option value="imota">Imota</option>
+                    <option value="mushin">Mushin</option>
+                    <option value="ojo">Ojo</option>
+                    <option value="oshodi">Oshodi</option>
+                    <option value="surulere">Surulere</option>
+                    <option value="somolu">Somolu</option>
+                    <option value="ikosi">Ikosi</option>
+                    <option value="ojuelegba">Ojuelegba</option>
+                    <option value="ojota">Ojota</option>
+                </select>
+            </div>
+        </div>
+
+        <button>Register Artisan</button>
+    </form>
+<% include partials/footer %>
