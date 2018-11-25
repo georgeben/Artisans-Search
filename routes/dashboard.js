@@ -3,9 +3,27 @@ const router = express.Router();
 
 const Artisan = require('../models/artisan-model')
 
-router.get('/', (req, res) =>{
+router.get('/', ensureAuthenticated, (req, res) =>{
     res.render("dashboard");
 });
+
+
+function ensureAuthenticated(req, res, next) {
+    if(req.isAuthenticated()) {
+        return next();        
+    } else {
+        console.log(req.user)
+        req.flash('error_msg', 'Log in to view your dashboard');
+        res.redirect('/signup');
+    }
+}
+
+router.get('/logout', function(req, res) {
+    req.logout();
+
+    req.flash('success_msg', 'You are logged out');
+    res.redirect('/login')
+})
 
 router.post('/', (req, res) => {
     artisan = new Artisan( {
@@ -21,5 +39,6 @@ router.post('/', (req, res) => {
         res.send('Artisan Created')
     })
 })
+
 
 module.exports = router;

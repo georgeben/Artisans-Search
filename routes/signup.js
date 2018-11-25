@@ -11,9 +11,8 @@ router.get('/', (req, res) =>{
 router.post('/', (req, res) => {
     Admin.checkIfUserExists({username: req.body.username}, function(err, user) {
         if(user) {
-            return res.status(200).json({
-                msg: 'You already have an account!',
-            })
+            req.flash('error_msg', 'The username is already taken.');
+            res.redirect('/signup');
         } else {
             admin = new Admin ({
                 name: req.body.name,
@@ -23,9 +22,8 @@ router.post('/', (req, res) => {
             Admin.createAdmin(admin, function(err, result) {
                 if (err) throw err;
                 console.log(result);
-                return res.status(200).json({
-                    msg: 'You are registere, Proceed to Login!',
-                })
+                req.flash('success_msg', 'You are registered!');
+                res.redirect('/login');
             })
         }
     })
