@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
 const logger = require('morgan');
 
 //Routes
@@ -20,6 +21,9 @@ app.use(express.static(path.resolve(__dirname, "public")));
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true}))
+
 //Route to the home page
 app.use('/', homeRoute);
 
@@ -38,13 +42,13 @@ app.use((req, res, next) =>{
 })
 
 //Error handler
-app.use((err, req, res, next) =>{
+/* app.use((err, req, res, next) =>{
     //Create a local context object to store the error message
     res.locals.message = err.message;
     // render the error page
     res.status(404);
     res.render('error');
-});
+}); */
 
 //Starting the server
 const server = app.listen(3000, ()=>{

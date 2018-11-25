@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt-nodejs')
 const Schema = mongoose.Schema;
 
-mongoose.connect("mongodb://localhost//artisan-search");
+mongoose.connect("mongodb://localhost/artisan-search");
 
 const adminSchema = new Schema({
     name: String,
@@ -27,15 +27,15 @@ module.exports.checkIfUserExists = function(query, callback) {
 //})
 
 module.exports.createAdmin = function(newAdmin, callback) {
-    bcrypt.hash(newAdmin.password, null, null, function(err, result) {
+    bcrypt.hash(newAdmin.password, null, null, function(err, hash) {
         if (err) throw err;
-        newUser.password = hash;
-        newUser.save(callback);
+        newAdmin.password = hash;
+        newAdmin.save(callback);
     })
 }
 
 
-module.exports.comparePassword = function(userEmail, hash, callback) {
+module.exports.comparePassword = function(userPassword, hash, callback) {
     bcrypt.compare(userPassword, hash, function(err, isMatch) {
         if (err) throw err;
         callback(null, isMatch)
