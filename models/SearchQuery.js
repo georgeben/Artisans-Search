@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongoDB = 'mongodb://localhost//artisan-search';
+const mongoDB = 'mongodb:/localhost/artisan-search';
 
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;

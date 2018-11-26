@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-mongoose.connect("mongodb://localhost//artisan-search");
+mongoose.connect("mongodb://localhost/artisan-search");
 
 const artisanSchema = new Schema({
     firstName: String,
