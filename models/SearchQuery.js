@@ -10,31 +10,61 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 
-function checkLocation(querystring, db){
+function checkLocation(locationQuery, occupationQuery, db){
 
-    const query = {location: querystring}
-    db.find(query, (err, result) => {
-        if(err){
-            console.log(err);
-        }
+    const lQuery = {location: locationQuery.trim()};
+    const oQuery = {occupation: occupationQuery.trim()};
 
-        console.log(result);
-        return result
-    })
+    if((locationQuery.trim() === "") && (occupationQuery.trim() === "")){
+        //do nothing
+    }
 
-}
+    else if((locationQuery.trim() === "") && !(occupationQuery.trim() === "")){
+        db.find(oQuery, (err, result) => {
+            if(err){
+                console.log(err);
+            }
+    
+            console.log(result);
+            return result
+        });
+    }
 
+    else if(!(locationQuery.trim() === "") && (occupationQuery.trim() === "")){
+        db.find(lQuery, (err, result) => {
+            if(err){
+                console.log(err);
+            }
+    
+            console.log(result);
+            return result
+        });
+    }
 
-function checkOccupation(querystring, db){
+    else if(!(locationQuery.trim() === "") && !(occupationQuery.trim() === "")){
+        const coll1, coll2;
 
-    const query = {occupation: querystring}
-    db.find(query, (err, result) => {
-        if(err){
-            console.log(err);
-        }
+        db.find(lQuery, (err, result) => {
+            if(err){
+                console.log(err);
+            }
+    
+            console.log(result);
+            coll1 = result;
+        });
 
-        console.log(result);
-        return result
-    })
+        db.find(oQuery, (err, result) => {
+            if(err){
+                console.log(err);
+            }
+    
+            console.log(result);
+            return result
+        });
+
+        const rawCollection = coll1.toJSON().concat(coll2.toJSON());
+        return (new Backbone.Collection(rawCollection));
+
+    }
 
 }
