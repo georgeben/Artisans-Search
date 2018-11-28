@@ -7,7 +7,6 @@ const Admin = require('../models/admin-model');
 let adminLoggedIn = "";
 
 router.get('/', ensureAuthenticated, (req, res) =>{
-    console.log("Incoming username", req.query.username);
     Admin.checkIfUserExists({username: req.query.username}, (err, admin) =>{
         adminLoggedIn = admin.name;
         res.render("dashboard", {
