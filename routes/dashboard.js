@@ -34,7 +34,7 @@ router.get('/logout', function(req, res) {
     res.redirect('/login')
 })
 
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
     artisan = new Artisan( {
         firstName: req.body.firstname,
         lastName: req.body.lastname,
@@ -43,7 +43,9 @@ router.post('/', (req, res) => {
         location: req.body.location,
     })
     Artisan.createArtisan(artisan, function(err, result) {
-        if (err) throw err;
+        if (err) {
+            return next(err);
+        };
         console.log(result);
         req.flash('success_msg', "Artisan successfully added to the database.");
 

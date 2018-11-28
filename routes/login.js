@@ -5,9 +5,6 @@ const url = require('url');
 require('../auth/passportSetup')(passport);
 
 router.get('/', (req, res) =>{
-    console.log(req.flash('error_msg'));
-    console.log(req.flash('error'));
-    res.locals.err_messages = req.flash('error')
     res.render("login");
 });
 

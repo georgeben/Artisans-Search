@@ -13,12 +13,12 @@ const artisanSchema = new Schema({
 let Artisan = module.exports = mongoose.model('Artisan', artisanSchema)
 
 //query e.g { email: req.body.email}
-module.exports.checkIfUserExists = function(query, callback) {
+module.exports.checkIfUserExists = (query, callback) => {
     Artisan.findOne(query, callback)    
 
 }
 
-module.exports.createArtisan= function(newArtisan, callback) {
+module.exports.createArtisan= (newArtisan, callback) => {
     newArtisan.save(callback)
 }
 
