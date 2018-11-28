@@ -9,53 +9,28 @@ router.get('/', (req, res) =>{
             console.log("Ohh shhiiit! An error", err.message);
             res.send("Something bad happened");
         }else{
-            console.log(result)
             res.render("home", {
                 count: result.length,
                 results: result
             });
         }
     })
-
-    //Dummy data just to populate the page
-    let results = [
-        {
-            name:"Taslim Oseni",
-            occupation:"Panel beater",
-            location:"Lekki Phase 1",
-            phonenumber:"0801234562"
-        },
-        {
-            name:"George Benjamin",
-            occupation:"Electrician",
-            location:"Lekki Phase 1",
-            phonenumber:"0801234562"
-        }, 
-        {
-            name:"Somto Onyekwere",
-            occupation:"Vulcanizer",
-            location:"Lekki Phase 1",
-            phonenumber:"0801234562"
-        }, 
-        {
-            name:"Daniel Damilere",
-            occupation:"Tailor",
-            location:"Lekki Phase 1",
-            phonenumber:"0801234562"
-        },
-        {
-            name:"Rasheed David",
-            occupation:"Plumber",
-            location:"Lekki Phase 1",
-            phonenumber:"0801234562"
-        },
-        {
-            name:"Buhari Jonah",
-            occupation:"Nothing",
-            location:"Lekki Phase 1",
-            phonenumber:"0801234562"
-        }
-    ];
 });
+
+router.post('/', (req, res) =>{
+    console.log("Incoming body",req.body)
+    console.log(req.body.occupation, req.body.location);
+    //res.send("I got your search");
+    Artisan.find({
+        occupation: req.body.occupation,
+        location: req.body.location,
+    }, (err, result) =>{
+        console.log(result);
+        res.render("home", {
+            count:result.length,
+            results:result
+        })
+    })
+})
 
 module.exports = router;
