@@ -2,19 +2,24 @@ const passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
      Admin = require('../models/admin-model')
 
-passport.use(new LocalStrategy(
-    function(username, password, done) {
-        Admin.checkIfUserExists({username: username}, function(err, user) {
-            if(err) throw err;
+passport.use(new LocalStrategy({passReqToCallback:true},
+    (req, username, password, done) => {
+        Admin.checkIfUserExists({username: username}, (err, user) => {
+            if(err) {
+                return done(err, req.flash('error', "An error occured. Please try again later."))
+            }
             if(!user) {
-                return done(null, false, { message: 'Unknown User'})
+                return done(null, false, req.flash('error', "Incorrect username or password"))
             }
             Admin.comparePassword(password, user.password, function(err, isMatch) {
-                if (err) throw err;
+                if (err) {
+                    return done(err, req.flash('error', "An error occured. Please try again later."))
+                    //throw err;
+                }
                 if(isMatch) {
                     return done(null, user)
                 } else {
-                    return done(null, false, {message: 'Invalid Password'})
+                    return done(null, false, req.flash('error', "Incorrect username or password"))
                 }
             })
         }); 

@@ -1,9 +1,6 @@
 <% if(success_msg) { %>
-    <div> <%= success_msg %> </div>
-<% } %>
-<% if(error_msg) { %>
-    <div> <%= error_msg %> </div>
+    <p class="flash-success"> <%= success_msg %> </p>
 <% } %>
 <% if(error) { %>
-    <div> <%= error %> </div>
+    <p class="flash"> <%= error %> </p>
 <% } %>

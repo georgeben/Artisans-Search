@@ -206,3 +206,20 @@ form label{
     color: rgb(31, 161, 248);
     text-align: center;
 }
+
+.flash{
+    color: red;
+    margin-bottom: 0;
+}
+
+.error{
+    width: 60%;
+    margin: auto;
+    margin-top: 150px;
+    text-align: center;
+}
+
+.error img{
+    display: block;
+    margin: auto;
+}

@@ -7,6 +7,13 @@ const session = require('express-session');
 const flash = require('connect-flash')
 const localStrategy = require('passport-local').Strategy;
 const logger = require('morgan');
+const mongoose = require('mongoose');
+
+mongoose.connect("mongodb://localhost/artisan-search");
+mongoose.Promise = global.Promise;
+const connection = mongoose.connection;
+connection.on('connected', () => console.log("Successfully connected to database"));
+connection.on('err', () => console.log("Failed to connect to db"));
 
 //Routes
 const homeRoute = require('./routes/home');
@@ -47,9 +54,9 @@ app.use(flash());
 
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
-    res.locals.error_msg = req.flash('error_msg');
+    // res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
-    res.locals.user = req.user || null;
+    // res.locals.user = req.user || null;
     next();
 })
 
@@ -71,13 +78,13 @@ app.use((req, res, next) =>{
 })
 
 //Error handler
-/* app.use((err, req, res, next) =>{
+ app.use((err, req, res, next) =>{
     //Create a local context object to store the error message
-    res.locals.message = err.message;
+    res.locals.err_message = err.message;
     // render the error page
     res.status(404);
     res.render('error');
-}); */
+}); 
 
 //Starting the server
 const server = app.listen(3000, ()=>{

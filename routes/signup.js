@@ -8,10 +8,10 @@ router.get('/', (req, res) =>{
 
 });
 
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
     Admin.checkIfUserExists({username: req.body.username}, function(err, user) {
         if(user) {
-            req.flash('error_msg', 'The username is already taken.');
+            req.flash('error', 'The username is already taken.');
             res.redirect('/signup');
         } else {
             admin = new Admin ({
@@ -20,7 +20,9 @@ router.post('/', (req, res) => {
                 password: req.body.password,
             })
             Admin.createAdmin(admin, function(err, result) {
-                if (err) throw err;
+                if (err) {
+                    return next(err)
+                };
                 console.log(result);
                 req.flash('success_msg', 'You are registered!');
                 res.redirect('/login');
