@@ -1,0 +1,25 @@
+<% include partials/header %>
+<body>
+    <header>
+        <nav>
+            <h1>Artisan Search</h1>
+        </nav>
+    </header>
+
+    <form class="signup-form card" method="post" action="/login">
+        <h4>Log in</h4>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter your username"
+            name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password"
+            name="password" required>
+        </div>
+        <button type="submit" class="btn">Log in</button>
+        <p>Dont have an account? Sign up <a href="/signup">here.</a></p>
+    </form>
+
+<% include partials/footer %>

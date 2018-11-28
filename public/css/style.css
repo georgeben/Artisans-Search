@@ -1,3 +1,208 @@
-h1{
-   color:red;
+:root{
+    --green-color:#67be4b;
+}
+
+html, body{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: var(--green-color);
+}
+
+nav{
+    background-color: var(--green-color);
+    color: white;
+    padding: 10px;
+    box-shadow: 2px 2px 4px #444;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: o;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+nav div{
+    width: 33%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.logo{
+    text-align: left;
+}
+
+.logo h1{
+    font-size: 2em;
+}
+
+.card{
+    margin: auto;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 2px 2px 4px #444;
+}
+
+.signup-form{
+    width: 40%; 
+    margin-top: 150px;
+}
+
+.signup-form h4{
+    text-align: center;
+}
+
+form label{
+    color: #585858;
+
+}
+
+.signup-form input, .add-artisan input, .user-search form input{
+    border-radius: 50px;
+    border: none;
+    background-color: #e9ebee;
+}
+
+.signup-form button{
+    width: 100%;
+    background-color: var(--green-color);
+    color: white;
+    border-radius: 50px;
+}
+
+.signup-form p{
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* Dashboard */
+
+.grey-bg{
+    background-color: #e9ebee;
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+}
+
+.admin-info{
+    width: 70%;
+    margin: auto;
+    margin-top: 100px;
+    background-color: #fff;
+    box-shadow: 2px 2px 4px #444;
+    padding: 10px;
+}
+
+.user-info img{
+    width: 90px;
+    height: 90px;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.add-artisan, .user-search{
+    padding: 10px 5%;
+    width: 70%;
+    margin: auto;
+    margin-top: 2%;
+}
+
+.add-artisan input, .user-search form input{
+    border: 1px solid var(--green-color);
+    background-color: #f2f2f2;
+}
+
+.form-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-row div{
+    width: 45%;
+}
+
+.form-row select, .user-search form select{
+    border-radius: 50px;
+    border: 1px solid var(--green-color);
+    background-color: #f2f2f2;
+    width: 100%;
+    padding: 5px;
+}
+
+.form-row select:focus, .user-search form select:focus{
+    outline: 0;
+}
+
+.add-artisan button{
+    width: 45%;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    background-color: var(--green-color);
+    padding: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.add-artisan button:focus{
+    outline: 0;
+}
+
+/* Home page */
+.user-search{
+    margin-top: 70px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+.user-search form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-search form div{
+    width: 40%;
+}
+
+.user-search form button{
+    width: 15%;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    background-color: var(--green-color);
+    padding: 6px;
+    margin-top: 11px;
+    cursor: pointer;
+}
+
+.results{
+    width: 70%;
+    margin: auto;
+    margin-top: 15%;
+}
+
+.artisan{
+    border-top: 1px solid #f2f2f2;
+    padding: 10px;
+}
+
+.artisan p{
+    margin-bottom: 0;
+}
+
+.flash-success{
+    color: rgb(31, 161, 248);
+    text-align: center;
 }
