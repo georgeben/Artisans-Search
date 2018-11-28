@@ -54,9 +54,9 @@ app.use(flash());
 
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
-    res.locals.error_msg = req.flash('error_msg');
+    // res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
-    res.locals.user = req.user || null;
+    // res.locals.user = req.user || null;
     next();
 })
 
@@ -80,7 +80,7 @@ app.use((req, res, next) =>{
 //Error handler
  app.use((err, req, res, next) =>{
     //Create a local context object to store the error message
-    res.locals.message = err.message;
+    res.locals.err_message = err.message;
     // render the error page
     res.status(404);
     res.render('error');

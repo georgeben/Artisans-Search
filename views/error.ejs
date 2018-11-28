@@ -1,5 +1,15 @@
 <% include partials/header %>
 <body class="grey-bg">
-    <h1>Oops! An error occured</h1>
+    <header>
+        <nav>
+            <h1>Artisan Search</h1>
+        </nav>
+    </header>
+    <div class="error" >
+        <h1>Ooops! Something went wrong.</h1>
+        <h3><%= err_message %></h3>
+        <img src="images/cry.gif" >
+    </div>
+    
 
 <% include partials/footer %>

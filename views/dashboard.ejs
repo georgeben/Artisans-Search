@@ -19,13 +19,15 @@
         <div>
             <h5><%=name %></h5>
             <p>Administrator</p>
+            <a href="/" >View all artisans</a>
         </div>
     </div>
 
     <form class="add-artisan card" method="POST"action="/dashboard">
-        <% if (success_msg){ %>
-            <p class="flash-success"><%= success_msg %></p>
-        <% } %>
+       
+        <% if(success_messages){%>
+            <p class="flash-success"><%=success_messages %></p>
+        <% }%>
         <h5>Add a new artisan</h5>
         <label for="firstname">Name</label>
         <div class="form-row">
