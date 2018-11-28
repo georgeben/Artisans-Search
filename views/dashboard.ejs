@@ -9,7 +9,7 @@
                 <h5>Dashboard</h5>
             </div>
             <div>
-                <h5>Log out</h5>
+                <h5><a href="/dashboard/logout">Log out</a></h5>
             </div>
         </nav>
     </header>
@@ -17,12 +17,15 @@
     <div class="user-info admin-info" >
         <img src="images/default_profile_img.png">
         <div>
-            <h5>James Bond</h5>
+            <h5><%=name %></h5>
             <p>Administrator</p>
         </div>
     </div>
 
     <form class="add-artisan card" method="POST"action="/dashboard">
+        <% if (success_msg){ %>
+            <p class="flash-success"><%= success_msg %></p>
+        <% } %>
         <h5>Add a new artisan</h5>
         <label for="firstname">Name</label>
         <div class="form-row">

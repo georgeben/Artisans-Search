@@ -1,7 +1,21 @@
 const express = require('express');
 const router = express.Router();
+const Artisan  = require('../models/artisan-model');
 
 router.get('/', (req, res) =>{
+
+    Artisan.find({}, (err, result) =>{
+        if(err){
+            console.log("Ohh shhiiit! An error", err.message);
+            res.send("Something bad happened");
+        }else{
+            console.log(result)
+            res.render("home", {
+                count: result.length,
+                results: result
+            });
+        }
+    })
 
     //Dummy data just to populate the page
     let results = [
@@ -42,11 +56,6 @@ router.get('/', (req, res) =>{
             phonenumber:"0801234562"
         }
     ];
-
-    res.render("home", {
-        count: results.length,
-        results: results
-    });
 });
 
 module.exports = router;

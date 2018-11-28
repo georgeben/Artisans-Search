@@ -1,13 +1,26 @@
 const express = require('express');
 const router = express.Router();
-
-const Admin = require('../models/admin-model')
+const passport = require('passport');
+const url = require('url');
+require('../auth/passportSetup')(passport);
 
 router.get('/', (req, res) =>{
     res.render("login");
 });
 
-router.post('/', (req, res) => {
+
+router.post('/', passport.authenticate('local', {failureRedirect: '/signup', failureFlash: true}), 
+            (req, res) =>{
+                res.redirect(url.format({
+                    pathname:"/dashboard",
+                    query:{
+                        username:req.body.username
+                    }
+                }))
+            });
+
+
+/* router.post('/', (req, res) => {
     Admin.checkIfUserExists({ username: req.body.username}, function(err, result) {
         if (err) throw err;
         console.log(result);
@@ -30,6 +43,6 @@ router.post('/', (req, res) => {
             })
         }
     })
-})
+}) */
 
 module.exports = router;

@@ -15,33 +15,7 @@ function checkLocation(locationQuery, occupationQuery, db){
     const lQuery = {location: locationQuery.trim()};
     const oQuery = {occupation: occupationQuery.trim()};
 
-    if((locationQuery.trim() === "") && (occupationQuery.trim() === "")){
-        //do nothing
-    }
-
-    else if((locationQuery.trim() === "") && !(occupationQuery.trim() === "")){
-        db.find(oQuery, (err, result) => {
-            if(err){
-                console.log(err);
-            }
     
-            console.log(result);
-            return result
-        });
-    }
-
-    else if(!(locationQuery.trim() === "") && (occupationQuery.trim() === "")){
-        db.find(lQuery, (err, result) => {
-            if(err){
-                console.log(err);
-            }
-    
-            console.log(result);
-            return result
-        });
-    }
-
-    else if(!(locationQuery.trim() === "") && !(occupationQuery.trim() === "")){
         const coll1, coll2;
 
         db.find(lQuery, (err, result) => {
@@ -66,5 +40,3 @@ function checkLocation(locationQuery, occupationQuery, db){
         return (new Backbone.Collection(rawCollection));
 
     }
-
-}

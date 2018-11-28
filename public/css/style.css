@@ -50,7 +50,7 @@ nav div{
 
 .signup-form{
     width: 40%; 
-    margin-top: 200px;
+    margin-top: 150px;
 }
 
 .signup-form h4{
@@ -94,7 +94,10 @@ form label{
 .admin-info{
     width: 70%;
     margin: auto;
-    margin-top: 2%;
+    margin-top: 100px;
+    background-color: #fff;
+    box-shadow: 2px 2px 4px #444;
+    padding: 10px;
 }
 
 .user-info img{
@@ -197,4 +200,9 @@ form label{
 
 .artisan p{
     margin-bottom: 0;
+}
+
+.flash-success{
+    color: rgb(31, 161, 248);
+    text-align: center;
 }
