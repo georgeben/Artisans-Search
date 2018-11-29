@@ -1,5 +1,5 @@
 # Artisans-Search - Find Artisans near you
-Artisans search is a web app that can help you locate and contact artisans (Electrician, Tailor, plumber, hairdresser, vulcanizer, etc) near you!
+Artisans search is a web app that can help you easily locate and contact skilled and reliable artisans (Electrician, Tailor, plumber, hairdresser, vulcanizer, etc) near you with reasonable service charges!
 
 ## Setup
 - Open your terminal
